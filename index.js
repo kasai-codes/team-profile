@@ -7,26 +7,109 @@ const Manager = require('./lib/Manager');
 const employees = [];
 
 
-function Questions() {
-    return inquirer.prompt([
+function addTeamManager() {
+    inquirer.prompt([
         {
-            type: 'input',
-            message: 'What is your project title?',
-            name: 'projectTitle',
+
+            message: "What is your team manager's name?",
+            name: 'name',
         },
 
         {
-            type: 'input',
-            message: 'Please write a description of your project:',
-            name: 'description',
+
+            message: "What is your manager's email?",
+            name: 'email',
         },
 
 
         {
-            type: 'input',
-            message: 'Please provide installation instructions if any:',
-            name: 'installation',
+
+            message: "What is your manager's office number?",
+            name: 'officeNumber',
         },
 
     ])
+        .then(function (input) {
+            const name = input.name;
+            const id = 1;
+            const email = input.email;
+            const officeNumber = input.officeNumber;
+            const teamMember = new Manager(name, id, email, officeNumber)
+            employees.push(teamMember)
+            addNewMember();
+        })
+
 }
+
+addTeamManager();
+
+
+
+function addNewMember() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Would you like to add more team members?",
+            choices: ["engineer", "intern", "no"],
+            name: "newTeamMember",
+        },
+
+
+
+    ])
+        .then(function (input) {
+            switch (input.newTeamMember) {
+                case "engineer":
+                    console.log("you selected engineer!");
+                    // addEngineer();
+                    addNewMember();
+                    break;
+
+                case "intern":
+                    console.log("you selected intern!");
+                    // addIntern();
+                    addNewMember();
+                    break;
+
+                default:
+                    console.log("goodbye");
+                    // writeTeamToFile()
+                    break;
+            }
+
+        })
+}
+
+function addIntern() {
+    inquirer.prompt([
+
+        {
+
+            message: "What is your engineer's name?",
+            name: 'name',
+        },
+
+        {
+
+            message: "What is your engineer's email?",
+            name: 'email',
+        },
+
+
+        {
+
+            message: "What is your engineer's Github profile?",
+            name: 'github',
+        },
+    ]
+        .then(function (input) {
+            const name = input.name;
+            const id = employee.length + 1;
+            const email = input.email;
+            const officeNumber = input.github;
+            const teamMember = new Intern(name, id, email, officeNumber)
+            employees.push(teamMember)
+            addNewMember();
+        })
+
+   )} 
