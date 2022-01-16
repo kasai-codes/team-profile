@@ -61,26 +61,26 @@ function addNewMember() {
             switch (input.newTeamMember) {
                 case "engineer":
                     console.log("you selected engineer!");
-                    // addEngineer();
+                    addEngineer();
                     addNewMember();
                     break;
 
                 case "intern":
                     console.log("you selected intern!");
-                    // addIntern();
+                    addIntern();
                     addNewMember();
                     break;
 
                 default:
                     console.log("goodbye");
-                    // writeTeamToFile()
+                    writeTeamToFile()
                     break;
             }
 
         })
 }
 
-function addIntern() {
+function addEngineer() {
     inquirer.prompt([
 
         {
@@ -106,10 +106,49 @@ function addIntern() {
             const name = input.name;
             const id = employee.length + 1;
             const email = input.email;
-            const officeNumber = input.github;
-            const teamMember = new Intern(name, id, email, officeNumber)
+            const github = input.github;
+            const teamMember = new Engineer(name, id, email, github)
             employees.push(teamMember)
             addNewMember();
         })
 
    )} 
+
+   function addIntern() {
+    inquirer.prompt([
+
+        {
+
+            message: "What is your intern's name?",
+            name: 'name',
+        },
+
+        {
+
+            message: "What is your intern's email?",
+            name: 'email',
+        },
+
+
+        {
+
+            message: "What is your intern's school name?",
+            name: 'school',
+        },
+    ]
+        .then(function (input) {
+            const name = input.name;
+            const id = employee.length + 1;
+            const email = input.email;
+            const school = input.school;
+            const teamMember = new Intern(name, id, email, school)
+            employees.push(teamMember)
+            addNewMember();
+        })
+
+   )};
+
+
+   function writeTeamToFile() {
+       
+   }
