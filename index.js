@@ -17,7 +17,7 @@ function createTeam() {
 
     .then(function(input){
         const chosenName = input.teamname
-        teamArray.push(chosenName);
+        // teamArray.push(chosenName);
         addTeamManager();
     })
 }
