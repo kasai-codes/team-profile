@@ -77,13 +77,13 @@ function addNewMember() {
                 case "engineer":
                     console.log("you selected engineer!");
                     addEngineer();
-                    addNewMember();
+                    // addNewMember();
                     break;
 
                 case "intern":
                     console.log("you selected intern!");
                     addIntern();
-                    addNewMember();
+                    // addNewMember();
                     break;
 
                 default:
@@ -116,10 +116,10 @@ function addEngineer() {
             message: "What is your engineer's Github profile?",
             name: 'github',
         },
-    ]
+    ])
         .then(function (input) {
             const name = input.name;
-            const id = employee.length + 1;
+            const id = teamArray.length + 1;
             const email = input.email;
             const github = input.github;
             const teamMember = new Engineer(name, id, email, github)
@@ -127,7 +127,7 @@ function addEngineer() {
             addNewMember();
         })
 
-   )} 
+   } 
 
    function addIntern() {
     inquirer.prompt([
@@ -150,10 +150,10 @@ function addEngineer() {
             message: "What is your intern's school name?",
             name: 'school',
         },
-    ]
+    ])
         .then(function (input) {
             const name = input.name;
-            const id = employee.length + 1;
+            const id = teamArray.length + 1;
             const email = input.email;
             const school = input.school;
             const teamMember = new Intern(name, id, email, school)
@@ -161,7 +161,7 @@ function addEngineer() {
             addNewMember();
         })
 
-   )};
+   };
 
 
    function writeTeamToFile() {

@@ -1,5 +1,8 @@
 const style = require("./css.js")
 // const index = require('index.js');
+const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
+const Manager = require('../lib/Manager');
 
 const generateTeam = team => {
 
@@ -90,8 +93,8 @@ module.exports = team => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${employees[0]}</title>
-        <style>${style}
+        <title></title>
+        <style>${style}</style>
     </head>
     
     
