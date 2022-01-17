@@ -10,7 +10,7 @@ body {
     align-items: center;
 }
 
-.banner-bar {
+.nav {
     background-color: rgba(53, 124, 109, 0.842);
     width: 100%;
     color: #ffffff;
@@ -26,13 +26,13 @@ h1 {
 }
 
 p {
-    font-family: 'Roboto Condensed', sans-serif;
+   
     position: relative;
     left: 12px;
 }
 
 h2 {
-    font-family: 'Roboto Condensed', sans-serif;
+   
     position: relative;
     font-size: 17px;
     left: 12px;

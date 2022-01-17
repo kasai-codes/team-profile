@@ -1,5 +1,5 @@
 const style = require("./css.js")
-const index = require('index.js');
+// const index = require('index.js');
 
 const generateTeam = team => {
 

@@ -56,7 +56,7 @@ function addTeamManager() {
 
 }
 
-addTeamManager();
+
 
 
 
@@ -163,4 +163,10 @@ function addEngineer() {
 
    )};
 
+
+   function writeTeamToFile() {
+       console.log("team created!")
+
+       fs.writeFileSync(genTeam(teamArray))
+   }
 createTeam();
