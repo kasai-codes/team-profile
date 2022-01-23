@@ -4,8 +4,8 @@ const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 
-const generateTeam = team => {
-
+const generateTeam = (team) => {
+// console.log(nameInput)
 
 
     const genManager = manager => {
@@ -17,7 +17,7 @@ const generateTeam = team => {
     </div>
     <div class="card-bottom">
         <p>Employee ID:${manager.getId()}</p>
-        <p>${manager.getEmail()}</p>
+        <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
 
     <p>${manager.getOfficeNumber()}</p>
 
@@ -36,9 +36,9 @@ const generateTeam = team => {
     </div>
     <div class="card-bottom">
         <p>Employee ID:${engineer.getId()}</p>
-        <p>${engineer.getEmail()}</p>
+        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </p>
 
-    <p>${engineer.getGitHub()}</p>
+    <p>Github: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></p>
 
     </div>
 </div>
@@ -54,7 +54,8 @@ const generateTeam = team => {
     </div>
     <div class="card-bottom">
         <p>Employee ID:${intern.getId()}</p>
-        <p>${intern.getEmail()}</p>
+
+        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
 
     <p>${intern.getSchool()}</p>
 
@@ -93,18 +94,18 @@ module.exports = team => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <title>Team Profile Builder</title>
         <style>${style}</style>
     </head>
     
     
      <div class="nav">
-         <h1>team</h1>
+         <h1>My Team</h1>
      </div>
     
-    <div class="cards">
+    <div class="card-container">
     
-    <div> ${generateTeam(team)}</div>
+     ${generateTeam(team)}
         
     
     </div>

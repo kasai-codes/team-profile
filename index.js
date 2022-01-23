@@ -4,8 +4,11 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const genTeam = require("./src/generateteam.js");
+const path = require('path');
+
 
 const teamArray = [];
+let nameInput = []; 
 
 function createTeam() {
     inquirer.prompt([
@@ -17,7 +20,9 @@ function createTeam() {
 
     .then(function(input){
         const chosenName = input.teamname
-        // teamArray.push(chosenName);
+        
+    //   nameInput.push(chosenName);
+      console.log(chosenName)
         addTeamManager();
     })
 }
@@ -49,8 +54,11 @@ function addTeamManager() {
             const id = 1;
             const email = input.email;
             const officeNumber = input.officeNumber;
+    
             const teamMember = new Manager(name, id, email, officeNumber)
+           
             teamArray.push(teamMember)
+    
             addNewMember();
         })
 
@@ -162,11 +170,13 @@ function addEngineer() {
         })
 
    };
-
+   const DIST_DIR = path.resolve(__dirname, 'dist');
+   const distPath = path.join(DIST_DIR, 'team.html');
 
    function writeTeamToFile() {
        console.log("team created!")
 
-       fs.writeFileSync(genTeam(teamArray))
+       fs.writeFileSync(distPath, genTeam(teamArray), 'utf-8')
+      
    }
 createTeam();
